@@ -1,6 +1,7 @@
 ﻿using FIT.Data;
 using FIT.Infrastructure;
 using FIT.WinForms.Helpers;
+using FIT.WinForms.Izvjestaji;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace FIT.WinForms.frmIB210128
     {
         DLWMSDbContext db = new DLWMSDbContext();
         List<DrzavaIB210128> drzave = new List<DrzavaIB210128>();
+        int rowIndex = 0;
         public frmDrzaveIB210128()
         {
             InitializeComponent();
@@ -74,10 +76,18 @@ namespace FIT.WinForms.frmIB210128
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 4) {
+            rowIndex = e.RowIndex;
+            if (e.ColumnIndex == 4)
+            {
                 frmGradoviIB210128 frmgradovi = new frmGradoviIB210128(drzave[e.RowIndex]);
                 frmgradovi.ShowDialog();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmIzvjestaji izvjestaj = new frmIzvjestaji(drzave[rowIndex]);
+            izvjestaj.ShowDialog();
         }
     }
 }

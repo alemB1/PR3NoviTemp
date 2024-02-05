@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Izvjestaji\.editorconfig" />
     <None Remove="Izvjestaji\rptUvjerenje.rdlc" />
   </ItemGroup>
 
@@ -27,6 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Izvjestaji\dsDLWMS.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsDLWMS.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -54,6 +60,18 @@
     <None Update="DLWMS.db">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+    <None Update="Izvjestaji\dsDLWMS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDLWMS.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\belko\Desktop\pr3files\cs-winforms-exam-template-2023-24-main\FIT.WinForms\Izvjestaji\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\belko\Desktop\pr3files\cs-winforms-exam-template-2023-24-main\FIT.WinForms\Izvjestaji\.editorconfig" />
   </ItemGroup>
 
 </Project>
