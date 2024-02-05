@@ -22,6 +22,8 @@ namespace FIT.Infrastructure
         }
     
         public DbSet<Student> Studenti { get; set; }
+        public DbSet<DrzavaIB210128> DrzaveIB210128 { get; set; }
+        public DbSet<GradIB210128> GradoviIB210128 { get; set; }
 
     }
 }
