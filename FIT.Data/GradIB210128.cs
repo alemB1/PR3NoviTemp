@@ -13,5 +13,9 @@ namespace FIT.Data
         public int Status { get; set; }
         public int DrzavaId { get; set; }
         public DrzavaIB210128 Drzava { get; set; }
+        public override string ToString()
+        {
+            return Naziv.ToString();
+        }
     }
 }

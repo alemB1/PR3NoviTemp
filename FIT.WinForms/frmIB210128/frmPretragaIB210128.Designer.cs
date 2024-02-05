@@ -34,6 +34,8 @@
             Grad = new DataGridViewTextBoxColumn();
             Drzava = new DataGridViewTextBoxColumn();
             Prosjek = new DataGridViewTextBoxColumn();
+            cbDrzava = new ComboBox();
+            cbGrad = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -43,13 +45,13 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ime, Prezime, Grad, Drzava, Prosjek });
-            dataGridView1.Location = new Point(12, 63);
+            dataGridView1.Location = new Point(12, 46);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(776, 375);
+            dataGridView1.Size = new Size(776, 392);
             dataGridView1.TabIndex = 0;
             // 
             // Ime
@@ -97,11 +99,31 @@
             Prosjek.Name = "Prosjek";
             Prosjek.ReadOnly = true;
             // 
+            // cbDrzava
+            // 
+            cbDrzava.FormattingEnabled = true;
+            cbDrzava.Location = new Point(12, 12);
+            cbDrzava.Name = "cbDrzava";
+            cbDrzava.Size = new Size(151, 28);
+            cbDrzava.TabIndex = 1;
+            cbDrzava.SelectedIndexChanged += cbDrzava_SelectedIndexChanged;
+            // 
+            // cbGrad
+            // 
+            cbGrad.FormattingEnabled = true;
+            cbGrad.Location = new Point(196, 12);
+            cbGrad.Name = "cbGrad";
+            cbGrad.Size = new Size(151, 28);
+            cbGrad.TabIndex = 2;
+            cbGrad.SelectedIndexChanged += cbGrad_SelectedIndexChanged;
+            // 
             // frmPretragaIB210128
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbGrad);
+            Controls.Add(cbDrzava);
             Controls.Add(dataGridView1);
             Name = "frmPretragaIB210128";
             Text = "frmPretragaIB210128";
@@ -118,5 +140,7 @@
         private DataGridViewTextBoxColumn Grad;
         private DataGridViewTextBoxColumn Drzava;
         private DataGridViewTextBoxColumn Prosjek;
+        private ComboBox cbDrzava;
+        private ComboBox cbGrad;
     }
 }

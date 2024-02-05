@@ -23,12 +23,13 @@ namespace FIT.WinForms.frmIB210128
 
         private void frmPretragaIB210128_Load(object sender, EventArgs e)
         {
+            studenti = db.Studenti.ToList();
             UcitajPodatke();
+            cbDrzava.DataSource = db.DrzaveIB210128.ToList();
         }
 
         private void UcitajPodatke()
         {
-            studenti = db.Studenti.ToList();
             var dsStudenti = new DataTable();
             dsStudenti.Columns.Add("Ime");
             dsStudenti.Columns.Add("Prezime");
@@ -44,14 +45,14 @@ namespace FIT.WinForms.frmIB210128
 
                 var prosjekCheck = db.PolozeniPredmeti.Where(x => x.StudentId == studenti[i].Id).ToList();
 
-                    
+
 
                 var noviRed = dsStudenti.NewRow();
                 noviRed["Ime"] = studenti[i].Ime.ToString();
                 noviRed["Prezime"] = studenti[i].Prezime.ToString();
                 noviRed["Grad"] = ImeGrada;
                 noviRed["Drzava"] = ImeDrzave;
-                if(prosjekCheck.Count() != 0)
+                if (prosjekCheck.Count() != 0)
                 {
                     var prosjek = db.PolozeniPredmeti.Where(x => x.StudentId == studenti[i].Id).Average(x => x.Ocjena);
                     noviRed["Prosjek"] = prosjek;
@@ -66,6 +67,31 @@ namespace FIT.WinForms.frmIB210128
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = dsStudenti;
+        }
+
+        private void cbDrzava_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UcitajPromjena();
+        }
+
+        private void cbGrad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UcitajPromjena();
+        }
+
+        private void UcitajPromjena()
+        {
+            var drzava = cbDrzava.SelectedItem as DrzavaIB210128;
+            cbGrad.DataSource = db.GradoviIB210128.Where(x => x.DrzavaId == drzava.Id).ToList();
+
+            var odabraniGrad = cbGrad.SelectedItem as GradIB210128;
+
+            studenti = db.Studenti.Where(x => x.GradId == odabraniGrad.Id).ToList();
+
+            if(studenti.Count() == 0)
+                MessageBox.Show("Nema studenta za taj kriterij");
+            else
+                UcitajPodatke();    
         }
     }
 }
