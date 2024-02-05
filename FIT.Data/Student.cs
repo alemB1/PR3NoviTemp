@@ -14,6 +14,8 @@ namespace FIT.Data
         public DateTime DatumRodjenja { get; set; }
         public bool Aktivan { get; set; }        
         public int SemestarId { get; set; }
+        public int GradId { get; set; }
+        public GradIB210128 Grad { get; set; }
         public override string ToString()
         {
             return $"{Indeks} {Ime} {Prezime}";

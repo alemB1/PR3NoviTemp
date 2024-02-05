@@ -1,4 +1,5 @@
 ﻿using FIT.Infrastructure;
+using FIT.WinForms.frmIB210128;
 using FIT.WinForms.Izvjestaji;
 
 using System;
@@ -29,6 +30,18 @@ namespace FIT.WinForms
         private void btnIzvjestaj_Click(object sender, EventArgs e)
         {
             new frmIzvjestaji().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmPretragaIB210128 pretraga = new frmPretragaIB210128();
+            pretraga.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmDrzaveIB210128 drzave = new frmDrzaveIB210128();
+            drzave.ShowDialog();
         }
     }
 }
