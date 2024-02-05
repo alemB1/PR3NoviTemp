@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
@@ -38,14 +39,16 @@
             Aktivan = new DataGridViewCheckBoxColumn();
             PromjeniStatus = new DataGridViewButtonColumn();
             groupBox1 = new GroupBox();
-            textBox3 = new TextBox();
+            txtInfo = new TextBox();
             button2 = new Button();
             checkBox1 = new CheckBox();
             textBox2 = new TextBox();
             label3 = new Label();
+            err = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -74,7 +77,7 @@
             label2.Name = "label2";
             label2.Size = new Size(185, 20);
             label2.TabIndex = 2;
-            label2.Text = "Unesite naziv novog drada";
+            label2.Text = "Unesite naziv novog grada";
             // 
             // textBox1
             // 
@@ -89,8 +92,9 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 4;
-            button1.Text = "button1";
+            button1.Text = "Dodaj";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
@@ -103,8 +107,10 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(684, 188);
             dataGridView1.TabIndex = 5;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Naziv
             // 
@@ -133,10 +139,12 @@
             PromjeniStatus.MinimumWidth = 6;
             PromjeniStatus.Name = "PromjeniStatus";
             PromjeniStatus.ReadOnly = true;
+            PromjeniStatus.Text = "Promjeni status";
+            PromjeniStatus.UseColumnTextForButtonValue = true;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(txtInfo);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(checkBox1);
             groupBox1.Controls.Add(textBox2);
@@ -148,13 +156,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Generator";
             // 
-            // textBox3
+            // txtInfo
             // 
-            textBox3.Location = new Point(6, 82);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(674, 153);
-            textBox3.TabIndex = 4;
+            txtInfo.Location = new Point(6, 82);
+            txtInfo.Multiline = true;
+            txtInfo.Name = "txtInfo";
+            txtInfo.Size = new Size(674, 153);
+            txtInfo.TabIndex = 4;
             // 
             // button2
             // 
@@ -164,6 +172,7 @@
             button2.TabIndex = 3;
             button2.Text = "Generisi";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // checkBox1
             // 
@@ -191,6 +200,10 @@
             label3.TabIndex = 0;
             label3.Text = "Broj gradova";
             // 
+            // err
+            // 
+            err.ContainerControl = this;
+            // 
             // frmGradoviIB210128
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -210,6 +223,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,7 +241,8 @@
         private CheckBox checkBox1;
         private TextBox textBox2;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtInfo;
+        private ErrorProvider err;
         private DataGridViewTextBoxColumn Naziv;
         private DataGridViewCheckBoxColumn Aktivan;
         private DataGridViewButtonColumn PromjeniStatus;
