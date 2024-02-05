@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            label1 = new Label();
-            lblTime = new Label();
             Zastava = new DataGridViewImageColumn();
             Drzava = new DataGridViewTextBoxColumn();
             BrojGradova = new DataGridViewTextBoxColumn();
             Aktivna = new DataGridViewCheckBoxColumn();
             Gradovi = new DataGridViewButtonColumn();
+            button1 = new Button();
+            button2 = new Button();
+            label1 = new Label();
+            lblTime = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -55,43 +55,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(781, 243);
             dataGridView1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(675, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(113, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Nova drzava";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(675, 314);
-            button2.Name = "button2";
-            button2.Size = new Size(113, 29);
-            button2.TabIndex = 2;
-            button2.Text = "Printaj";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 351);
-            label1.Name = "label1";
-            label1.Size = new Size(120, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Trenutno vrijeme";
-            // 
-            // lblTime
-            // 
-            lblTime.AutoSize = true;
-            lblTime.Location = new Point(138, 351);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(23, 20);
-            lblTime.TabIndex = 4;
-            lblTime.Text = ":D";
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Zastava
             // 
@@ -142,6 +106,43 @@
             Gradovi.ReadOnly = true;
             Gradovi.Text = "Gradovi";
             Gradovi.UseColumnTextForButtonValue = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(675, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(113, 29);
+            button1.TabIndex = 1;
+            button1.Text = "Nova drzava";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(675, 314);
+            button2.Name = "button2";
+            button2.Size = new Size(113, 29);
+            button2.TabIndex = 2;
+            button2.Text = "Printaj";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 351);
+            label1.Name = "label1";
+            label1.Size = new Size(120, 20);
+            label1.TabIndex = 3;
+            label1.Text = "Trenutno vrijeme";
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Location = new Point(138, 351);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(23, 20);
+            lblTime.TabIndex = 4;
+            lblTime.Text = ":D";
             // 
             // frmDrzaveIB210128
             // 

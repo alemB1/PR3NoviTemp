@@ -71,5 +71,13 @@ namespace FIT.WinForms.frmIB210128
             novaDrzava.ShowDialog();
             UcitajSve();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 4) {
+                frmGradoviIB210128 frmgradovi = new frmGradoviIB210128(drzave[e.RowIndex]);
+                frmgradovi.ShowDialog();
+            }
+        }
     }
 }
