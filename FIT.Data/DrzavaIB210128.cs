@@ -12,5 +12,10 @@ namespace FIT.Data
         public string Naziv { get; set; }
         public int Status { get; set; }
         public byte[] Zastava { get; set; }
+
+        public override string ToString()
+        {
+            return Naziv.ToString();
+        }
     }
 }
